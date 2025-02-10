@@ -1,50 +1,149 @@
-<form id="inventoryForm">
-  <label>Nome Appartamento</label>
-  <input type="text" name="Nome Appartamento">
-
-  <label>Data di Ispezione</label>
-  <input type="date" name="Data di Ispezione">
-
-  <label>Persona Responsabile</label>
-  <input type="text" name="Persona Responsabile">
-
-  <label>Indirizzo (Link Google Maps)</label>
-  <input type="url" name="Indirizzo (Link google Maps)">
-
-  <label>PROPRIETARIO</label>
-  <input type="text" name="PROPRIETARIO">
-
-  <label>Piano</label>
-  <input type="text" name="Piano">
-
-  <label>Nome sul Campanello</label>
-  <input type="text" name="Nome sul Campanello">
-
-  <button type="submit">Invia Inventario</button>
-</form>
-
-<script>
-  document.getElementById('inventoryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const data = new URLSearchParams();
-    for (const [key, value] of formData.entries()) {
-      data.append(key, value);
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario Case</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
     }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .form-section {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    .btn {
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
 
-    fetch('https://script.google.com/macros/s/AKfycbxYlBdDvyUIYkHECGY5QdOcD_hMg9AU0khGe30j3LCMnEkmcGKJuLfRL9eEB1EBsky1pw/exec', {
-      method: 'POST',
-      body: data
-    })
-    .then(response => response.json())
-    .then(resp => {
-      console.log(resp);
-      alert('Inventario inviato con successo!');
-      this.reset();
-    })
-    .catch(error => {
-      console.error(error);
-      alert('Errore nell\'invio dell\'inventario.');
+  <div class="container">
+    <h1>Inventario Case</h1>
+    <form id="inventoryForm">
+
+      <!-- =========================
+           SEZIONE BASIC
+      ========================== -->
+      <div class="form-section">
+        <h2>BASIC</h2>
+        <div class="form-group"><label for="nomeAppartamento">Nome Appartamento</label><input type="text" id="nomeAppartamento" name="Nome Appartamento"></div>
+        <div class="form-group"><label for="dataIspezione">Data di Ispezione</label><input type="date" id="dataIspezione" name="Data di Ispezione"></div>
+        <div class="form-group"><label for="personaResponsabile">Persona Responsabile</label><input type="text" id="personaResponsabile" name="Persona Responsabile"></div>
+        <div class="form-group"><label for="indirizzo">Indirizzo (Link Google Maps)</label><input type="url" id="indirizzo" name="Indirizzo (Link google Maps)"></div>
+        <div class="form-group"><label for="proprietario">PROPRIETARIO</label><input type="text" id="proprietario" name="PROPRIETARIO"></div>
+        <div class="form-group"><label for="piano">Piano</label><input type="text" id="piano" name="Piano"></div>
+        <div class="form-group"><label for="nomeCampanello">Nome sul Campanello</label><input type="text" id="nomeCampanello" name="Nome sul Campanello"></div>
+      </div>
+
+      <!-- =========================
+           SEZIONE SERVIZI E DOTAZIONI
+      ========================== -->
+      <div class="form-section">
+        <h2>Servizi</h2>
+        <div class="form-group"><label for="codiceCIN">Codice CIN è visibile fuori?</label><select id="codiceCIN" name="Codice CIN è visibile fuori?"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
+        <div class="form-group"><label for="accessibileDisabili">Accessibile ai Disabili?</label><select id="accessibileDisabili" name="Accessibile ai Disabili?"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
+        <div class="form-group"><label for="petFriendly">Pet Friendly?</label><select id="petFriendly" name="Pet Friendly?"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
+        <div class="form-group"><label for="ascensore">Ascensore</label><select id="ascensore" name="Ascensore"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
+      </div>
+
+      <!-- =========================
+           SEZIONE CUCINA
+      ========================== -->
+      <div class="form-section">
+        <h2>Cucina</h2>
+        <div class="form-group"><label for="pianoCottura">Tipo di Piano Cottura</label><input type="text" id="pianoCottura" name="Tipo di Piano Cottura"></div>
+        <div class="form-group"><label for="macchinaCaffe">Macchina del Caffè</label><input type="text" id="macchinaCaffe" name="Macchina del Caffè"></div>
+        <div class="form-group"><label for="caffettieraMoka">Caffettiera MOKA</label><input type="text" id="caffettieraMoka" name="Caffettiera MOKA"></div>
+        <div class="form-group"><label for="lavastoviglie">Lavastoviglie</label><input type="text" id="lavastoviglie" name="Lavastoviglie"></div>
+      </div>
+
+      <!-- =========================
+           SEZIONE SICUREZZA
+      ========================== -->
+      <div class="form-section">
+        <h2>Sicurezza</h2>
+        <div class="form-group"><label for="estintore">Estintore</label><input type="text" id="estintore" name="Estintore"></div>
+        <div class="form-group"><label for="rilevatoreMonossido">Rilevatore Monossido di Carbonio</label><input type="text" id="rilevatoreMonossido" name="Rilevatore Monossido di Carbonio"></div>
+      </div>
+
+      <!-- =========================
+           SEZIONE COMMENTI
+      ========================== -->
+      <div class="form-section">
+        <h2>Commenti</h2>
+        <div class="form-group"><label for="commento">Commento (opzionale)</label><textarea id="commento" name="Commento" rows="4"></textarea></div>
+      </div>
+
+      <button type="submit" class="btn">Invia Inventario</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('inventoryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = new URLSearchParams();
+      for (const [key, value] of formData.entries()) {
+        data.append(key, value);
+      }
+
+      fetch('https://script.google.com/macros/s/AKfycbw-FpYQl3fyBnN6KgcFj_lXfVlMqeYLPyHWP75HPpmw5rE3S_IT8hXUOnqdMgNkSfi0Cw/exec', {
+        method: 'POST',
+        body: data
+      })
+      .then(response => response.json())
+      .then(resp => {
+        console.log(resp);
+        alert('Inventario inviato con successo!');
+        this.reset();
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Errore nell\'invio dell\'inventario.');
+      });
     });
-  });
-</script>
+  </script>
+
+</body>
+</html>
+
