@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventario Case (URLSearchParams)</title>
+  <title>Inventario Case (x-www-form-urlencoded)</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -180,10 +180,10 @@
       </div>
 
       <!-- Sezione CUCINA -->
-      <!-- ... (rimangono uguali, con <input type="text"> e <select> come da tuo codice) ... -->
+      <!-- ... (rimangono uguali, con <input type='text'> e <select> come da tuo codice) ... -->
 
       <!-- Sezione CAMERE, DOTAZIONI, ESTERNI, PULIZIA, SICUREZZA, COMMENTI, ecc. -->
-      <!-- (Tutte le sezioni restano invariate, mantengono gli stessi ID e name) -->
+      <!-- (Tutte le sezioni restano invariate, mantenendo i 'name' giusti) -->
 
       <!-- Bottone per inviare il form -->
       <button type="submit" class="btn">Invia Inventario</button>
@@ -194,29 +194,28 @@
     document.getElementById('inventoryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Creiamo un oggetto URLSearchParams per inviare i campi in x-www-form-urlencoded
-      const data = new URLSearchParams();
-      // 1) Otteniamo tutti i dati del form con FormData
+      // 1) Raccogli i campi col FormData
       const formData = new FormData(this);
-      
-      // 2) Aggiungiamo i campi di FormData a "data"
-      for (const [key, value] of formData.entries()) {
-        data.append(key, value);
+
+      // 2) Costruisci un URLSearchParams per x-www-form-urlencoded
+      const data = new URLSearchParams();
+      for (const [k, v] of formData.entries()) {
+        data.append(k, v);
       }
 
-      // 3) Eseguiamo la fetch verso la Web App di Apps Script (URL con /exec)
+      // 3) Esegui la fetch verso la Web App di Apps Script (URL con /exec)
       fetch('https://script.google.com/macros/s/AKfycbw-FpYQl3fyBnN6KgcFj_lXfVlMqeYLPyHWP75HPpmw5rE3S_IT8hXUOnqdMgNkSfi0Cw/exec', {
         method: 'POST',
-        body: data // i campi vanno inviati come x-www-form-urlencoded
+        body: data
       })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
+      .then(res => res.json())
+      .then(resp => {
+        console.log(resp);
         alert('Inventario inviato con successo!');
         this.reset();
       })
       .catch(error => {
-        console.error('Errore:', error);
+        console.error(error);
         alert('Si è verificato un errore nell\'invio dell\'inventario.');
       });
     });
