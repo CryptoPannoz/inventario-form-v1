@@ -42,9 +42,6 @@
       border-radius: 3px;
       box-sizing: border-box;
     }
-    input[type="file"] {
-      padding: 3px;
-    }
     .btn {
       background: #007BFF;
       color: #fff;
@@ -376,25 +373,21 @@
         </div>
       </div>
 
-      <!-- Sezione FOTO E COMMENTI -->
+      <!-- Sezione COMMENTI (senza foto) -->
       <div class="form-section" id="fotoCommenti">
-        <h2>Foto e Commenti</h2>
-        <div class="form-group">
-          <label for="fotoObbligatoria">Foto Obbligatoria</label>
-          <input type="file" id="fotoObbligatoria" name="fotoObbligatoria" accept="image/*">
-        </div>
+        <h2>Commenti</h2>
         <div class="form-group">
           <label for="commento">Commento (opzionale)</label>
           <textarea id="commento" name="commento" rows="4"></textarea>
         </div>
       </div>
 
+      <!-- Bottone per inviare il form -->
       <button type="submit" class="btn">Invia Inventario</button>
     </form>
   </div>
 
   <script>
-    // Modifica fetch() con il nuovo URL
     document.getElementById('inventoryForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const formData = new FormData(this);
@@ -416,5 +409,3 @@
   </script>
 </body>
 </html>
-
-
