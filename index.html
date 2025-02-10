@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventario Case (x-www-form-urlencoded)</title>
+  <title>Inventario Case</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,9 +23,9 @@
       text-align: center;
     }
     .form-section {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       border-bottom: 1px solid #ddd;
-      padding-bottom: 15px;
+      padding-bottom: 10px;
     }
     .form-group {
       margin-bottom: 15px;
@@ -55,348 +55,63 @@
   </style>
 </head>
 <body>
+
   <div class="container">
     <h1>Inventario Case</h1>
     <form id="inventoryForm">
+
       <!-- =========================
            SEZIONE BASIC
       ========================== -->
-      <div class="form-section" id="basic">
+      <div class="form-section">
         <h2>BASIC</h2>
-        <div class="form-group">
-          <label for="nomeAppartamento">Nome Appartamento</label>
-          <input type="text" id="nomeAppartamento" name="nomeAppartamento">
-        </div>
-        <div class="form-group">
-          <label for="personaResponsabile">Persona Responsabile</label>
-          <input type="text" id="personaResponsabile" name="personaResponsabile">
-        </div>
-        <div class="form-group">
-          <label for="indirizzo">Indirizzo (Link google Maps)</label>
-          <input type="url" id="indirizzo" name="indirizzo">
-        </div>
-<small>Apri google Maps e incolla qui il link della proprietà tipo: https://g.co/kgs/Qdj9T9b.</small>
-<hr>
-        <div class="form-group">
-          <label for="proprietario">PROPRIETARIO</label>
-          <input type="text" id="proprietario" name="proprietario">
-        </div>
-        <div class="form-group">
-          <label for="piano">Piano</label>
-          <input type="text" id="piano" name="piano">
-        </div>
-        <div class="form-group">
-          <label for="nomeCampanello">Nome sul Campanello</label>
-          <input type="text" id="nomeCampanello" name="nomeCampanello">
-        </div>
-        <div class="form-group">
-          <label for="codiceCIN">Codice CIN è visibile fuori?</label>
-          <select id="codiceCIN" name="codiceCIN">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="accessibileDisabili">Accessibile ai Disabili?</label>
-          <select id="accessibileDisabili" name="accessibileDisabili">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="petFriendly">Pet Friendly?</label>
-          <select id="petFriendly" name="petFriendly">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="ascensore">Ascensore</label>
-          <select id="ascensore" name="ascensore">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="balcone">Balcone/Terrazza?</label>
-          <select id="balcone" name="balcone">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="giardino">Giardino?</label>
-          <select id="giardino" name="giardino">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="camino">Camino</label>
-          <select id="camino" name="camino">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="ariaCondizionata">Aria Condizionata?</label>
-          <select id="ariaCondizionata" name="ariaCondizionata">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="cullaSeggiolone">Culla/Seggiolone?</label>
-          <select id="cullaSeggiolone" name="cullaSeggiolone">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="ssid">Nome Rete WIFI (SSID)</label>
-          <input type="text" id="ssid" name="ssid">
-        </div>
-        <div class="form-group">
-          <label for="wifiPassword">Password WIFI</label>
-          <input type="password" id="wifiPassword" name="wifiPassword">
-        </div>
-        <div class="form-group">
-          <label for="posizioneModem">Posizione Modem Wifi</label>
-          <input type="text" id="posizioneModem" name="posizioneModem">
-        </div>
-        <div class="form-group">
-          <label for="qrTouchStay">Codice QR TouchStay Stampato</label>
-          <input type="text" id="qrTouchStay" name="qrTouchStay">
-        </div>
+        <div class="form-group"><label for="nomeAppartamento">Nome Appartamento</label><input type="text" id="nomeAppartamento" name="Nome Appartamento"></div>
+        <div class="form-group"><label for="dataIspezione">Data di Ispezione</label><input type="date" id="dataIspezione" name="Data di Ispezione"></div>
+        <div class="form-group"><label for="personaResponsabile">Persona Responsabile</label><input type="text" id="personaResponsabile" name="Persona Responsabile"></div>
+        <div class="form-group"><label for="indirizzo">Indirizzo (Link Google Maps)</label><input type="url" id="indirizzo" name="Indirizzo (Link google Maps)"></div>
+        <div class="form-group"><label for="proprietario">PROPRIETARIO</label><input type="text" id="proprietario" name="PROPRIETARIO"></div>
+        <div class="form-group"><label for="piano">Piano</label><input type="text" id="piano" name="Piano"></div>
+        <div class="form-group"><label for="nomeCampanello">Nome sul Campanello</label><input type="text" id="nomeCampanello" name="Nome sul Campanello"></div>
+      </div>
+
+      <!-- =========================
+           SEZIONE SERVIZI E DOTAZIONI
+      ========================== -->
+      <div class="form-section">
+        <h2>Servizi</h2>
+        <div class="form-group"><label for="codiceCIN">Codice CIN è visibile fuori?</label><select id="codiceCIN" name="Codice CIN è visibile fuori?"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
+        <div class="form-group"><label for="accessibileDisabili">Accessibile ai Disabili?</label><select id="accessibileDisabili" name="Accessibile ai Disabili?"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
+        <div class="form-group"><label for="petFriendly">Pet Friendly?</label><select id="petFriendly" name="Pet Friendly?"><option value="">Seleziona</option><option value="Si">Si</option><option value="No">No</option></select></div>
       </div>
 
       <!-- =========================
            SEZIONE CUCINA
       ========================== -->
-      <div class="form-section" id="cucina">
+      <div class="form-section">
         <h2>Cucina</h2>
-        <div class="form-group">
-          <label for="pianoCottura">Tipo di Piano Cottura</label>
-          <input type="text" id="pianoCottura" name="pianoCottura">
-        </div>
-        <div class="form-group">
-          <label for="macchinaCaffe">Macchina del Caffè</label>
-          <input type="text" id="macchinaCaffe" name="macchinaCaffe">
-        </div>
-        <div class="form-group">
-          <label for="caffettieraMoka">Caffettiera MOKA</label>
-          <input type="text" id="caffettieraMoka" name="caffettieraMoka">
-        </div>
-        <div class="form-group">
-          <label for="lavastoviglie">Lavastoviglie</label>
-          <input type="text" id="lavastoviglie" name="lavastoviglie">
-        </div>
-        <div class="form-group">
-          <label for="frigorifero">Frigorifero</label>
-          <input type="text" id="frigorifero" name="frigorifero">
-        </div>
-        <div class="form-group">
-          <label for="forno">Forno</label>
-          <input type="text" id="forno" name="forno">
-        </div>
-        <div class="form-group">
-          <label for="microonde">Microonde</label>
-          <input type="text" id="microonde" name="microonde">
-        </div>
-        <div class="form-group">
-          <label for="tagliere">Tagliere</label>
-          <input type="text" id="tagliere" name="tagliere">
-        </div>
-        <div class="form-group">
-          <label for="bollitoreElettrico">Bollitore Elettrico</label>
-          <input type="text" id="bollitoreElettrico" name="bollitoreElettrico">
-        </div>
-        <div class="form-group">
-          <label for="friggitrice">Friggitrice</label>
-          <input type="text" id="friggitrice" name="friggitrice">
-        </div>
-        <div class="form-group">
-          <label for="tostapane">Tostapane</label>
-          <input type="text" id="tostapane" name="tostapane">
-        </div>
-        <div class="form-group">
-          <label for="utensiliCucina">Utensili da Cucina</label>
-          <input type="text" id="utensiliCucina" name="utensiliCucina">
-        </div>
-        <div class="form-group">
-          <label for="bicchieri">Bicchieri</label>
-          <input type="text" id="bicchieri" name="bicchieri">
-        </div>
-        <div class="form-group">
-          <label for="caliciVino">Calici da Vino</label>
-          <input type="text" id="caliciVino" name="caliciVino">
-        </div>
-        <div class="form-group">
-          <label for="posate">Posate</label>
-          <input type="text" id="posate" name="posate">
-        </div>
-        <div class="form-group">
-          <label for="spremiagrumi">Spremiagrumi</label>
-          <input type="text" id="spremiagrumi" name="spremiagrumi">
-        </div>
-      </div>
-
-      <!-- =========================
-           SEZIONE CAMERE
-      ========================== -->
-      <div class="form-section" id="camere">
-        <h2>Camere</h2>
-        <div class="form-group">
-          <label for="cuscinoAggiuntivo">Cuscino Aggiuntivo</label>
-          <input type="text" id="cuscinoAggiuntivo" name="cuscinoAggiuntivo">
-        </div>
-        <div class="form-group">
-          <label for="copertaAggiuntiva">Coperta Aggiuntiva</label>
-          <input type="text" id="copertaAggiuntiva" name="copertaAggiuntiva">
-        </div>
-      </div>
-
-      <!-- =========================
-           SEZIONE DOTAZIONI
-      ========================== -->
-      <div class="form-section" id="dotazioni">
-        <h2>Dotazioni</h2>
-        <div class="form-group">
-          <label for="asciugacapelli">Asciugacapelli (min 1 per bagno)</label>
-          <input type="text" id="asciugacapelli" name="asciugacapelli">
-        </div>
-        <div class="form-group">
-          <label for="quadroElettrico">Quadro Elettrico (Posizione)</label>
-          <input type="text" id="quadroElettrico" name="quadroElettrico">
-        </div>
-        <div class="form-group">
-          <label for="caldaia">Caldaia/ Scaldabagno</label>
-          <input type="text" id="caldaia" name="caldaia">
-        </div>
-        <div class="form-group">
-          <label for="termostato">Termostato (Posizione)</label>
-          <input type="text" id="termostato" name="termostato">
-        </div>
-        <div class="form-group">
-          <label for="lavanderia">Tipo di Lavanderia (condivisa/interna)</label>
-          <input type="text" id="lavanderia" name="lavanderia">
-        </div>
-        <div class="form-group">
-          <label for="lavatrice">Lavatrice</label>
-          <input type="text" id="lavatrice" name="lavatrice">
-        </div>
-        <div class="form-group">
-          <label for="asciugatrice">Asciugatrice</label>
-          <input type="text" id="asciugatrice" name="asciugatrice">
-        </div>
-        <div class="form-group">
-          <label for="ferroStiro">Ferro da Stiro</label>
-          <input type="text" id="ferroStiro" name="ferroStiro">
-        </div>
-        <div class="form-group">
-          <label for="asseStiro">Asse da Stiro</label>
-          <input type="text" id="asseStiro" name="asseStiro">
-        </div>
-        <div class="form-group">
-          <label for="televisori">Televisori</label>
-          <input type="text" id="televisori" name="televisori">
-        </div>
-        <div class="form-group">
-          <label for="lettoreDVD">Lettore DVD/Blue Ray</label>
-          <input type="text" id="lettoreDVD" name="lettoreDVD">
-        </div>
-        <div class="form-group">
-          <label for="smartTV">Apple TV/Smart TV</label>
-          <input type="text" id="smartTV" name="smartTV">
-        </div>
-        <div class="form-group">
-          <label for="altoparlante">Altoparlante</label>
-          <input type="text" id="altoparlante" name="altoparlante">
-        </div>
-      </div>
-
-      <!-- =========================
-           SEZIONE ESTERNI
-      ========================== -->
-      <div class="form-section" id="esterni">
-        <h2>Esterni</h2>
-        <div class="form-group">
-          <label for="barbecue">Barbecue</label>
-          <input type="text" id="barbecue" name="barbecue">
-        </div>
-        <div class="form-group">
-          <label for="mobiliEsterno">Mobili da Esterno</label>
-          <input type="text" id="mobiliEsterno" name="mobiliEsterno">
-        </div>
-        <div class="form-group">
-          <label for="piscina">Piscina</label>
-          <select id="piscina" name="piscina">
-            <option value="">Seleziona</option>
-            <option value="si">Si</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- =========================
-           SEZIONE PULIZIA
-      ========================== -->
-      <div class="form-section" id="pulizia">
-        <h2>Pulizia</h2>
-        <div class="form-group">
-          <label for="mocio">Mocio e Secchio</label>
-          <input type="text" id="mocio" name="mocio">
-        </div>
-        <div class="form-group">
-          <label for="aspirapolvere">Aspirapolvere</label>
-          <input type="text" id="aspirapolvere" name="aspirapolvere">
-        </div>
+        <div class="form-group"><label for="pianoCottura">Tipo di Piano Cottura</label><input type="text" id="pianoCottura" name="Tipo di Piano Cottura"></div>
+        <div class="form-group"><label for="macchinaCaffe">Macchina del Caffè</label><input type="text" id="macchinaCaffe" name="Macchina del Caffè"></div>
+        <div class="form-group"><label for="caffettieraMoka">Caffettiera MOKA</label><input type="text" id="caffettieraMoka" name="Caffettiera MOKA"></div>
+        <div class="form-group"><label for="lavastoviglie">Lavastoviglie</label><input type="text" id="lavastoviglie" name="Lavastoviglie"></div>
       </div>
 
       <!-- =========================
            SEZIONE SICUREZZA
       ========================== -->
-      <div class="form-section" id="sicurezza">
+      <div class="form-section">
         <h2>Sicurezza</h2>
-        <div class="form-group">
-          <label for="estintore">Estintore</label>
-          <input type="text" id="estintore" name="estintore">
-        </div>
-        <div class="form-group">
-          <label for="rilevatoreMonossido">Rilevatore Monossido di Carbonio</label>
-          <input type="text" id="rilevatoreMonossido" name="rilevatoreMonossido">
-        </div>
-        <div class="form-group">
-          <label for="copertaAntincendio">Coperta Antincendio</label>
-          <input type="text" id="copertaAntincendio" name="copertaAntincendio">
-        </div>
-        <div class="form-group">
-          <label for="kitPrimoSoccorso">Kit di Primo Soccorso</label>
-          <input type="text" id="kitPrimoSoccorso" name="kitPrimoSoccorso">
-        </div>
+        <div class="form-group"><label for="estintore">Estintore</label><input type="text" id="estintore" name="Estintore"></div>
+        <div class="form-group"><label for="rilevatoreMonossido">Rilevatore Monossido di Carbonio</label><input type="text" id="rilevatoreMonossido" name="Rilevatore Monossido di Carbonio"></div>
       </div>
 
       <!-- =========================
-           SEZIONE COMMENTI (opzionale)
+           SEZIONE COMMENTI
       ========================== -->
-      <div class="form-section" id="fotoCommenti">
+      <div class="form-section">
         <h2>Commenti</h2>
-        <div class="form-group">
-          <label for="commento">Commento (opzionale)</label>
-          <textarea id="commento" name="commento" rows="4"></textarea>
-        </div>
+        <div class="form-group"><label for="commento">Commento (opzionale)</label><textarea id="commento" name="Commento" rows="4"></textarea></div>
       </div>
 
-      <!-- Bottone per inviare il form -->
       <button type="submit" class="btn">Invia Inventario</button>
     </form>
   </div>
@@ -404,22 +119,18 @@
   <script>
     document.getElementById('inventoryForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      // 1) Raccogli i campi col FormData
-      const formData = new FormData(this);
 
-      // 2) Costruisci un URLSearchParams per x-www-form-urlencoded
+      const formData = new FormData(this);
       const data = new URLSearchParams();
-      for (const [k, v] of formData.entries()) {
-        data.append(k, v);
+      for (const [key, value] of formData.entries()) {
+        data.append(key, value);
       }
 
-      // 3) Esegui la fetch verso la Web App di Apps Script (URL con /exec)
       fetch('https://script.google.com/macros/s/AKfycbw-FpYQl3fyBnN6KgcFj_lXfVlMqeYLPyHWP75HPpmw5rE3S_IT8hXUOnqdMgNkSfi0Cw/exec', {
         method: 'POST',
         body: data
       })
-      .then(res => res.json())
+      .then(response => response.json())
       .then(resp => {
         console.log(resp);
         alert('Inventario inviato con successo!');
@@ -427,9 +138,10 @@
       })
       .catch(error => {
         console.error(error);
-        alert('Si è verificato un errore nell\'invio dell\'inventario.');
+        alert('Errore nell\'invio dell\'inventario.');
       });
     });
   </script>
+
 </body>
 </html>
